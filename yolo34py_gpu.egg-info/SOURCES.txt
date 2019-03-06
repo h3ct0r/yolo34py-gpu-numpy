@@ -1,0 +1,15 @@
+MANIFEST.in
+bridge.cpp
+bridge.h
+pydarknet.cpp
+pydarknet.pxd
+pydarknet.pyx
+pypi_readme.md
+setup.py
+util.py
+__libdarknet/__init__.py
+yolo34py_gpu.egg-info/PKG-INFO
+yolo34py_gpu.egg-info/SOURCES.txt
+yolo34py_gpu.egg-info/dependency_links.txt
+yolo34py_gpu.egg-info/requires.txt
+yolo34py_gpu.egg-info/top_level.txt
