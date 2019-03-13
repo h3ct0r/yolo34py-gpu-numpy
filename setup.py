@@ -9,9 +9,11 @@ try:
 except ImportError:
     if hasattr(pip, 'main'):
         pip.main(['install', 'numpy'])
+        pip.main(['install', '--upgrade', 'pip'])
     else:
         from pip._internal import main
         main(['install', 'numpy'])
+        main(['install', '--upgrade', 'pip'])
     import numpy as np
 
 #import numpy as np # TODO: Need a mechanism to ensure numpy is already installed
