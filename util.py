@@ -33,7 +33,10 @@ def build_darknet(darknet_dir, branch_name, target_location):
     os.remove(os.path.join(download_path, "darknet.zip"))
 
     logging.info("Building darknet")
-    build_ret = subprocess.Popen("make", shell=True, stdout=subprocess.PIPE, cwd=os.path.join(download_path,"darknet-"+branch_name))
+    my_env = os.environ.copy()
+    my_env["PATH"] = "/usr/local/cuda/bin:" + my_env["PATH"]
+
+    build_ret = subprocess.Popen("make", shell=True, stdout=subprocess.PIPE, cwd=os.path.join(download_path,"darknet-"+branch_name), env=my_env)
     if build_ret.wait() == 0:
         logging.info("Darknet building successful")
     else:
