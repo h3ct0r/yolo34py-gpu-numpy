@@ -2,12 +2,15 @@ import tempfile
 from distutils.command.build import build
 from distutils.command.clean import clean
 import sys
+import pip
 
 try:
     import numpy as np
 except ImportError:
-    from pip._internal import main
-    main(['install', 'numpy'])
+    if hasattr(pip, 'main'):
+        pip.main(['install', 'numpy'])
+    else:
+        pip._internal.main(['install', 'numpy'])
     import numpy as np
 
 #import numpy as np # TODO: Need a mechanism to ensure numpy is already installed
